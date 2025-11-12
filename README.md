@@ -173,7 +173,7 @@ Extracted CSV files contain:
 
 The HTML visualization shows the complete XDF data structure:
 
-- Click **¶** to expand nodes
+- Click **Â¶** to expand nodes
 - Use **Expand All/Collapse All** buttons for quick navigation
 - Behavioral stream is highlighted and prioritized
 - Color-coded information:
@@ -282,7 +282,7 @@ This tool was designed for LSL task builders. If you encounter issues with speci
 
 ## License
 
-[Your license information here]
+GNU GENERAL PUBLIC LICENSE V3
 
 ## See Also
 
