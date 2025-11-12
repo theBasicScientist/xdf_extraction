@@ -288,7 +288,7 @@ This tool was designed for LSL task builders. If you encounter issues with speci
 
 ## License
 
-[Your license information here]
+GNU GENERAL PUBLIC LICENSE V3
 
 ## See Also
 
