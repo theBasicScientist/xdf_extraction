@@ -8,7 +8,7 @@ behavioral event streams for analysis.
 
 Author: theScientist@theBasicScientist.com
 License: GNU GENERAL PUBLIC LICENSE V3
-Version: 1.1.3
+Version: 1.1.4
 
 Usage:
     python xdf_extraction.py data.xdf
@@ -89,7 +89,30 @@ class XDFSchematicGenerator:
     
     def _get_size_mb(self, obj: Any) -> float:
         """Estimate memory footprint in MB."""
-        return sys.getsizeof(obj) / (1024 * 1024)
+        total_size = sys.getsizeof(obj)
+
+        # For dictionaries, recursively calculate size of contents
+        if isinstance(obj, dict):
+            for key, value in obj.items():
+                total_size += sys.getsizeof(key)
+                if isinstance(value, np.ndarray):
+                    # For numpy arrays, use nbytes for accurate size
+                    total_size += value.nbytes
+                elif isinstance(value, (list, dict)):
+                    # Recursively calculate for nested structures
+                    total_size += self._get_size_mb(value) * 1024 * 1024  # Convert back to bytes
+                else:
+                    total_size += sys.getsizeof(value)
+        elif isinstance(obj, np.ndarray):
+            total_size = obj.nbytes
+        elif isinstance(obj, list):
+            for item in obj:
+                if isinstance(item, np.ndarray):
+                    total_size += item.nbytes
+                else:
+                    total_size += sys.getsizeof(item)
+
+        return total_size / (1024 * 1024)
     
     def _get_type_and_info(self, obj: Any) -> Tuple[str, str]:
         """Get type and summary info for an object."""
