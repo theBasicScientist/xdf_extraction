@@ -91,6 +91,12 @@ optional arguments:
   --no-csv              Skip saving behavioral data as CSV
 ```
 
+## Example Output
+
+![XDF Extraction Tool Screenshot](media/screenshot.png)
+
+*Example of the interactive HTML visualization showing stream summary and behavioral data*
+
 ## Use Cases for Task Builders
 
 ### 1. Verify LSL Stream Configuration
@@ -173,7 +179,7 @@ Extracted CSV files contain:
 
 The HTML visualization shows the complete XDF data structure:
 
-- Click **¶** to expand nodes
+- Click **�** to expand nodes
 - Use **Expand All/Collapse All** buttons for quick navigation
 - Behavioral stream is highlighted and prioritized
 - Color-coded information:
@@ -282,7 +288,7 @@ This tool was designed for LSL task builders. If you encounter issues with speci
 
 ## License
 
-GNU GENERAL PUBLIC LICENSE V3
+[Your license information here]
 
 ## See Also
 
